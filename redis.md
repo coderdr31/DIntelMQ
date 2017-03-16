@@ -12,8 +12,12 @@ redis 127.0.0.1:6379> LPUSH KEY_NAME VALUE1.. VALUEN
 2) "foo"
 ```
 
-1. SELECT index. 切换到指定的数据库
-2. llen key
+* FLUSHALL    清空所有数据库的所有 key
+* SELECT index. 切换到指定的数据库
+* DBSIZE         显示指定数据库的 key 数量
+* keys *    列出指定数据库的key
+* flushdb   清除指定数据库的key
+* llen key
 
 
 

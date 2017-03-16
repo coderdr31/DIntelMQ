@@ -17,17 +17,13 @@
 6. 不要执行6.1，执行 chmod -R 777 /opt/intelmq  即可。
   6.1  chown -R intelmq.intelmq /opt/intelmq to dr.dr 用户  ;intelmq-mang usermod -a -G intelmq www-data  -> dr
       * 在添加之后若再对该用户添加另外附加组时，使用`usermod -G 附加组名 用户名`会覆盖该用户的之前的附加组。此时，可在usermod 命令中添加一个参数 -a 来实现 `usermod -a -G 附加组名 用户名`.
-
 ##
 1. fields: A field is a key=value pair.     harmonization
   a event 是多个k-v的结构化日志记录
-
-## 其他
-1. IOC（Indicator of Compromise）是MANDIANT在长期的数字取证实践中定义的可以反映主机或网络行为的技术指示器
-
+2. redis列表.
 ## 使用
 1. intelmqctl -h  可以控制intelmq
-2. intelmqdump  错误处理，可以检查转储的消息，显示，删除或重新注入
+2. intelmqdump  错误处理，可以检查转储的消息(the message in question)，显示，删除或重新注入
 管道。These dumps are saved at /opt/intelmq/var/log/[botid].dump as JSON files.
 3.
 Pipeline interactions
@@ -35,13 +31,13 @@ A can call three methods related to the pipeline:
 self.receive_message(): The pipeline handler pops one message from the internal queue if possible. Otherwise one message from the sources list is popped, and added it to an internal queue. In case of errors in process handling, the message can still be found in the internal queue and is not lost. The bot class unravels the message a creates an instance of the Event or Report class.
 self.send_message(event): Processed message is sent to destination queues.
 self.acknowledge_message(): Message formerly received by receive_message is removed from the internal queue. This should always be done after processing and after the sending of the new message. In case of errors, this function is not called and the message will stay in the internal queue waiting to be processed again.
-
 ### 使用要注意的
-1. 运行bot前，如果/opt/intelmq/var/run下有对应bot.pid,则应删掉，否则bot运行出错。(bot运行正常时，会自动生成对应的bot.pid;正常结束后，自动会删掉对应的bot.pid)
+1. 运行bot前，如果/opt/intelmq/var/run下有对应bot.pid,则应删掉，否则bot运行出错。(命令行运行：run，会结束进程和删掉pid文件；start不会)
 2. bot_id命名: 不能出现除了 0-9a-zA-Z(数字、字母)和-  以外的字符
 
-# redis
-1. redis列表.
 
-# 记录杂
-1. IntelMQController 的 global：RETURN_TYPE、logger、QUIET
+# Developers
+1. 所有的目录及文件命名小写，用下划线代替空格。bot目录的名称必须对应于feed名称
+2. Class name of the bot (ex: PhishTank Parser) must correspond to the type of the bot (ex: Parser) e.g.  PhishTankParserBot
+## 其他
+1. IOC（Indicator of Compromise）是MANDIANT在长期的数字取证实践中定义的可以反映主机或网络行为的技术指示器
