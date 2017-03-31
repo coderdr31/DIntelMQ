@@ -34,10 +34,43 @@ self.acknowledge_message(): Message formerly received by receive_message is remo
 ### 使用要注意的
 1. 运行bot前，如果/opt/intelmq/var/run下有对应bot.pid,则应删掉，否则bot运行出错。(命令行运行：run，会结束进程和删掉pid文件；start不会)
 2. bot_id命名: 不能出现除了 0-9a-zA-Z(数字、字母)和-  以外的字符
+3. 安装python包，要在intelmq用户下安装，否则运行报错(如expert-maxmindgeoip)
+### collect bot
+readme/requirement
+xmpp
+misp
+file
+rt
+blueliv
+mail
+
+n6
+alienvault_otx
+
+### expert bot
+abusix        Python 2.7.,  无，redis5(缓存，cache，便于下一次遇到一样的)
+asn_lookup      无，第一次要配置(readme),以后直接添加
+certat_contact  无
+cymru_whois     无，redis5(缓存，cache，便于下一次遇到一样的)
+deduplicator    web配置，redis6
+gethostbyname   无
+maxmind_geoip  无，第一次使用配置好后(readme)，直接添加
+modify
+reverse_dns    无，redis7(缓存，cache，便于下一次遇到一样的)
+rfc1918        无
+ripencc_abuse_contact 无，redis5缓存
+taxonomy      无
+tor_nodes     无，第一次使用配置好后(readme)，直接添加
+url2fqdn      无
+
+field_reducer
+filter
+generic_db_lookup
 
 
 # Developers
 1. 所有的目录及文件命名小写，用下划线代替空格。bot目录的名称必须对应于feed名称
 2. Class name of the bot (ex: PhishTank Parser) must correspond to the type of the bot (ex: Parser) e.g.  PhishTankParserBot
+3. build生成：python3 setup.py build
 ## 其他
 1. IOC（Indicator of Compromise）是MANDIANT在长期的数字取证实践中定义的可以反映主机或网络行为的技术指示器
