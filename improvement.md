@@ -21,9 +21,14 @@
 2. 不往harmonization.conf增加field
 
 TODO：
-1. other-ParserBot 增加可选字段(new field)，raw不要删除内容
-2. ExpertBot——IPMarker
+1. other-ParserBot 增加可选字段(new field)，raw不要删除内容。丰富newParserBot.conf。extra的处理
+2. ExpertBot——IPMarker、harm.conf做大做全
 3. web界面
+  time-时区转换，web界面时区选择
+  raw 完善
+4. queue开接口
+5. 安管中心的数据处理
 
 Q:
 1. 开源的intelmq更新怎么办？ 是否要保证intelmq更新后能直接使用？
+2. 预处理(容错性),field-[多值]

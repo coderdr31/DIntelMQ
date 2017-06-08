@@ -74,3 +74,6 @@ generic_db_lookup
 3. build生成：python3 setup.py build
 ## 其他
 1. IOC（Indicator of Compromise）是MANDIANT在长期的数字取证实践中定义的可以反映主机或网络行为的技术指示器
+
+#亮点
+1. 中文的处理
