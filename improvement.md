@@ -21,14 +21,15 @@
 2. 不往harmonization.conf增加field
 
 TODO：
-1. other-ParserBot 增加可选字段(new field)，raw不要删除内容。丰富newParserBot.conf。extra的处理
-2. ExpertBot——IPMarker、harm.conf做大做全
+1. other-ParserBot 增加可选字段(new field)，raw不要删除内容。丰富newParserBot.conf
+2. ExpertBot——IPMarker
 3. web界面
   time-时区转换，web界面时区选择
   raw 完善
-4. queue开接口
-5. 安管中心的数据处理
 
 Q:
 1. 开源的intelmq更新怎么办？ 是否要保证intelmq更新后能直接使用？
-2. 预处理(容错性),field-[多值]
+
+### 界面
+1. 数据类型 - html5新类型 - http://www.w3school.com.cn/html/html_form_input_types.asp - HTML5 输入类型，输入限制
+   限制输入值范围，例如number1-5之间、正则表达式
